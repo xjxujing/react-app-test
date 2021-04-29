@@ -5,12 +5,16 @@ class AddContact extends Component {
     super(props)
     this.state = {
       name: null,
-      age: null
+      age: null,
+      id: null
     }
   }
 
   submitForm = (e) => {
     e.preventDefault()
+    this.setState({
+      id: Math.random() * 10
+    })
     this.props.addContact(this.state)
   }
 
@@ -19,6 +23,7 @@ class AddContact extends Component {
       [e.target.id]: e.target.value
     })
   }
+
   render() {
     return (
       <form onSubmit={this.submitForm}>
@@ -26,7 +31,6 @@ class AddContact extends Component {
           <label htmlFor="name">姓名</label>
           <input type="text" id="name" onChange={this.handleChange}></input>
         </div>
-
 
         <div>
           <label htmlFor="age">年龄</label>

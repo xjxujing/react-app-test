@@ -1,5 +1,5 @@
 const Contact = (props) => {
-  const { contactList } = props
+  const { contactList, deleteContact } = props
 
   const tempList = contactList.map(contact => {
     return (
@@ -10,7 +10,7 @@ const Contact = (props) => {
           <span>{contact.age} years old</span>
         </span>
         <span> | </span>
-        <button>删除</button>
+        <button onClick={() => deleteContact(contact.id)}>删除</button>
       </div>
     )
   })

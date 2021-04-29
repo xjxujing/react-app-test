@@ -13,17 +13,27 @@ class App extends Component {
       { name: '花花', age: '60', id: '3' },
     ]
   }
-  
+
   addContact = (contact) => {
-    contact.id = Math.random() * 10
+    const contactList = this.state.contactList.slice()
+    contactList.push(contact)
     this.setState({
-      contactList: [...this.state.contactList, contact]
+      contactList: contactList
+    })
+  }
+
+  deleteContact = (id) => {
+    const contactList = this.state.contactList.filter(item => {
+      return item.id !== id
+    })
+    this.setState({
+      contactList: contactList
     })
   }
   render() {
     return (
       <div className="App">
-        <Contact name="lulu" contactList={this.state.contactList} />
+        <Contact name="lulu" contactList={this.state.contactList} deleteContact={this.deleteContact} />
 
         <AddContact addContact={this.addContact} />
       </div>
