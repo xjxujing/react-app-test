@@ -2,6 +2,13 @@ import { Component } from 'react'
 
 
 class Contact extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: null
+    }
+  }
+
   render() {
     console.log(this.props)
     const {contactList} = this.props
