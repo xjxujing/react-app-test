@@ -10,19 +10,21 @@ class Contact extends Component {
   }
 
   render() {
-    console.log(this.props)
-    const {contactList} = this.props
-    console.log('contactList', contactList)
+    const { contactList } = this.props
 
     const tempList = contactList.map(contact => {
       return (
-        <h3 key={contact.id}>{contact.name}</h3>
+        <h6 key={contact.id}>
+          <span>{contact.name}</span>
+          <span> | </span>
+          <span>{contact.age} years old</span>
+        </h6>
       )
     })
 
     return (
       <div>
-       {tempList}
+        {tempList}
       </div>
     )
   }
