@@ -1,33 +1,27 @@
-import { Component } from 'react'
+const Contact = (props) => {
+  const { contactList } = props
 
-
-class Contact extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: null
-    }
-  }
-
-  render() {
-    const { contactList } = this.props
-
-    const tempList = contactList.map(contact => {
-      return (
-        <h6 key={contact.id}>
+  const tempList = contactList.map(contact => {
+    return (
+      <div key={contact.id}>
+        <span >
           <span>{contact.name}</span>
           <span> | </span>
           <span>{contact.age} years old</span>
-        </h6>
-      )
-    })
-
-    return (
-      <div>
-        {tempList}
+        </span>
+        <span> | </span>
+        <button>删除</button>
       </div>
     )
-  }
+  })
+
+  return (
+    <div>
+      {tempList}
+    </div>
+  )
+
 }
+
 
 export default Contact
